@@ -1,4 +1,4 @@
-import '../views/Nav.css';
+import '../views/Nav.scss';
 
 const Nav = () => {
     return (
