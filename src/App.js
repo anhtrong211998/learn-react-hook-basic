@@ -29,9 +29,19 @@ function App() {
     }
     //hook not merge state
     //...spread syntax array js
-    let newTodo = { id: 'abc', title: address, type: 'eric' }
+    let newTodo = {
+      id: Math.floor((Math.random() * 100000) + 1),
+      title: address,
+      type: 'eric'
+    }
     setTodos([...todos, newTodo])
     setAddress('')
+  }
+
+  const deleteDataTodo = (id) => {
+    let currentTodos = todos;
+    currentTodos = currentTodos.filter(item => item.id !== id)
+    setTodos(currentTodos)
   }
   //re-render
 
@@ -43,11 +53,14 @@ function App() {
         <h1>Hello world with React and {name}!</h1>
 
         <Todo todos={todos}
-          title={`All todos`} />
+          title={`All todos`}
+          deleteDataTodo={deleteDataTodo}
+        />
 
         <Todo
           todos={todos.filter(item => item.type === 'eric')}
           title={`TrongHD3's todos`}
+          deleteDataTodo={deleteDataTodo}
         />
 
         <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
