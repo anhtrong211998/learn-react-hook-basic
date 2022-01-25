@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Todo } from './views/Todo';
 
 function App() {
@@ -14,6 +14,17 @@ function App() {
     { id: 'todo3', title: 'Playing game', type: 'hoidanit' },
     { id: 'todo4', title: 'Reading books', type: 'hoidanit' }
   ]);
+
+  //// useEffect
+  //// didmount
+  // useEffect(() => {
+  //   console.log('run use effect');
+  // }, [address]);
+
+  //// didUpdate
+  useEffect(() => {
+    console.log('run use effect');
+  }, [todos,address]);
 
   //// handle event
   const handleOnChange = (event) => {
