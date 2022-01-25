@@ -10,6 +10,7 @@ export function Todo(props) {
                     <li className="todo-child" key={todo.id}> {todo.title}</li>
                 )
             })}
+            <hr/>
         </div>
     );
 }
