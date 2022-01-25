@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Todo } from './views/Todo';
+import Covid from './views/Covid';
 
 function App() {
   //// state in function compoennt 
@@ -24,7 +25,7 @@ function App() {
   //// didUpdate
   useEffect(() => {
     console.log('run use effect');
-  }, [todos,address]);
+  }, [todos, address]);
 
   //// handle event
   const handleOnChange = (event) => {
@@ -58,12 +59,13 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
       <header className="App-header">
+        <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}!</h1>
 
-        <Todo todos={todos}
+        <Covid />
+        {/* <Todo todos={todos}
           title={`All todos`}
           deleteDataTodo={deleteDataTodo}
         />
@@ -72,10 +74,11 @@ function App() {
           todos={todos.filter(item => item.type === 'eric')}
           title={`TrongHD3's todos`}
           deleteDataTodo={deleteDataTodo}
-        />
-
+        /> 
+        
         <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
         <button type="button" onClick={(event) => handleOnClick(event)}>Click me</button>
+        */}
       </header>
     </div>
   );
