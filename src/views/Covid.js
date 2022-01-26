@@ -1,48 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
-import moment from 'moment';
+import React from 'react';
+import useFetch from '../customize/cusFetch';
 
 export default function Covid() {
-    const [dataCovid, setDataCovid] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    // componentDidMount
-    // useEffect(async () => {
-    //     let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z')
-    //     let data = res && res.data ? res.data : [];
-    //     if (data && data.length > 0) {
-    //         data.map(item => {
-    //             item.Date = moment(item.Date).format('DD/MM/YYYY');
-    //             return item;
-    //         })
-    //     }
-    //     setDataCovid(data)
-    // }, []);
-
-    useEffect(() => {
-        try {
-            async function fetchData() {
-                setTimeout(async () => {
-                    let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z')
-                    let data = res && res.data ? res.data : [];
-                    if (data && data.length > 0) {
-                        data.map(item => {
-                            item.Date = moment(item.Date).format('DD/MM/YYYY');
-                            return item;
-                        })
-                    }
-                    setDataCovid(data);
-                    setIsLoading(false);
-                    setIsError(false);
-                }, 3000);
-            }
-            fetchData();
-        }
-        catch (e) {
-            setIsLoading(false);
-            setIsError(true);
-        }
-    }, []);
+    const {datas: dataCovid, isLoading, isError }
+        = useFetch('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z');
 
     return (
         <>
