@@ -9,6 +9,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Blog from './views/Blog';
+import DetailBlog from './views/DetailBlog';
 
 function App() {
   //// state in function compoennt 
@@ -63,7 +65,7 @@ function App() {
   //re-render
 
   return (
-  <BrowserRouter>
+    <BrowserRouter>
       <div className="App">
 
         <header className="App-header">
@@ -78,9 +80,9 @@ function App() {
             <Covid />
           </Route>
           <Route path="/timer">
-            <CountDown/>
+            <CountDown />
             <span>---------------------</span>
-            <NewCountDown/>
+            <NewCountDown />
 
           </Route>
           <Route path="/todo">
@@ -91,6 +93,13 @@ function App() {
             />
             <input type="text" value={address} onChange={(event) => handleOnchangeInput(event)} />
             <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
+          </Route>
+
+          <Route path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/blog/:id">
+            <DetailBlog />
           </Route>
         </Switch>
       </div>

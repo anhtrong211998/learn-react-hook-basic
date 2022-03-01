@@ -7,7 +7,7 @@ export default function Covid() {
     const priorDate = moment().startOf('day').subtract(31, 'days').toISOString(true);
 
     const { datas: dataCovid, isLoading, isError }
-        = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`);
+        = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`, true);
 
     return (
         <>
