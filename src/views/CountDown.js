@@ -24,6 +24,12 @@ export class CountDown extends React.Component{
         }
     }
 
+    componentWillUnmount(){
+        if(this.timer){
+            clearInterval(this.timer);
+        }
+    }
+
     render(){
         return(
             <div>{this.state.count} class</div>
