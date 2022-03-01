@@ -27,11 +27,11 @@ const Blog = () => {
             })}
 
             {isLoading === true &&
-                <div style={{ textAlign: 'center !important' }}>Loading data...</div>
+                <div style={{ textAlign: 'center !important', width: '100%' }}>Loading data...</div>
             }
 
             {isError === true
-                && <div style={{ textAlign: 'center !important' }}>Something wrong... </div>
+                && <div style={{ textAlign: 'center !important', width: '100%' }}>Something wrong... </div>
             }
         </div>
 
