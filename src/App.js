@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
+import AddNewBlog from './views/AddNewBlog';
 
 function App() {
   //// state in function compoennt 
@@ -95,11 +96,14 @@ function App() {
             <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
           </Route>
 
-          <Route path="/blog">
+          <Route path="/blog" exact>
             <Blog />
           </Route>
           <Route path="/blog/:id">
             <DetailBlog />
+          </Route>
+          <Route path="/add-new-blog" exact>
+            <AddNewBlog />
           </Route>
         </Switch>
       </div>
