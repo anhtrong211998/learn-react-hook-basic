@@ -4,6 +4,11 @@ import Nav from './views/Nav';
 import { useState, useEffect } from 'react';
 import { Todo } from './views/Todo';
 import Covid from './views/Covid';
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   //// state in function compoennt 
@@ -58,29 +63,38 @@ function App() {
   //re-render
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Nav />
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello world with React and {name}!</h1>
+  <BrowserRouter>
+      <div className="App">
 
-        <Covid />
-        {/* <Todo todos={todos}
-          title={`All todos`}
-          deleteDataTodo={deleteDataTodo}
-        />
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
 
-        <Todo
-          todos={todos.filter(item => item.type === 'eric')}
-          title={`TrongHD3's todos`}
-          deleteDataTodo={deleteDataTodo}
-        /> 
-        
-        <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
-        <button type="button" onClick={(event) => handleOnClick(event)}>Click me</button>
-        */}
-      </header>
-    </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/" exact>
+            <Covid />
+          </Route>
+          <Route path="/timer">
+            <CountDown/>
+            <span>---------------------</span>
+            <NewCountDown/>
+
+          </Route>
+          <Route path="/todo">
+            <Todo
+              todos={todos}
+              title={'All todos'}
+              deleteDataTodo={deleteDataTodo}
+            />
+            <input type="text" value={address} onChange={(event) => handleOnchangeInput(event)} />
+            <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
