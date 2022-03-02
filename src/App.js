@@ -12,6 +12,7 @@ import {
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
 import AddNewBlog from './views/AddNewBlog';
+import NotFound from './views/NotFound';
 
 function App() {
   //// state in function compoennt 
@@ -104,6 +105,9 @@ function App() {
           </Route>
           <Route path="/add-new-blog" exact>
             <AddNewBlog />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
